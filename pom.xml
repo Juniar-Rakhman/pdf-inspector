@@ -23,7 +23,7 @@
         <surefire-plugin.version>3.2.5</surefire-plugin.version>
 
         <pdfbox.version>3.0.4</pdfbox.version>
-        <bouncycastle.version>1.78.1</bouncycastle.version>
+        <bouncycastle.version>1.85</bouncycastle.version>
 
         <frontend.plugin.version>1.15.1</frontend.plugin.version>
         <frontend.skip>${skip.frontend}</frontend.skip>
