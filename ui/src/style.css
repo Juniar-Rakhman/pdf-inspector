@@ -1,0 +1,332 @@
+:root {
+  --dt-bg: #202124;
+  --dt-bg-panel: #292a2d;
+  --dt-bg-elevated: #35363a;
+  --dt-bg-hover: #3c3f43;
+  --dt-bg-active: #2b5876;
+  --dt-bg-input: #202124;
+  --dt-border: #3f4043;
+  --dt-border-strong: #4a4b4e;
+  --dt-text: #e8eaed;
+  --dt-text-muted: #9aa0a6;
+  --dt-text-faint: #6b6f74;
+  --dt-accent: #8ab4f8;
+  --dt-accent-bg: rgba(138, 180, 248, 0.12);
+  --dt-green: #81c995;
+  --dt-yellow: #fdd663;
+  --dt-red: #f28b82;
+  --dt-orange: #f8a24a;
+  --dt-blue: #8ab4f8;
+  --dt-purple: #d7aefb;
+  --dt-font-mono: 'SFMono-Regular', ui-monospace, 'Menlo', 'Consolas', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  background: var(--dt-bg);
+  color: var(--dt-text);
+  overflow: hidden;
+}
+
+/* ---------- DevTools style toolbar ---------- */
+.dt-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 10px;
+  background: var(--dt-bg-panel);
+  border-bottom: 1px solid var(--dt-border);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.dt-toolbar .toolbar-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dt-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dt-toolbar .toolbar-spacer {
+  flex: 1;
+}
+
+/* ---------- Buttons ---------- */
+.dt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--dt-border-strong);
+  border-radius: 4px;
+  background: var(--dt-bg-elevated);
+  color: var(--dt-text);
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dt-btn:hover:not(:disabled) {
+  background: var(--dt-bg-hover);
+}
+
+.dt-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.dt-btn.active {
+  background: var(--dt-accent-bg);
+  border-color: var(--dt-accent);
+  color: var(--dt-accent);
+}
+
+.dt-btn-primary {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #fff;
+}
+
+.dt-btn-primary:hover:not(:disabled) {
+  background: #1967d2;
+}
+
+/* ---------- Inputs ---------- */
+.dt-input,
+.dt-select {
+  height: 26px;
+  padding: 0 8px;
+  background: var(--dt-bg-input);
+  border: 1px solid var(--dt-border-strong);
+  border-radius: 4px;
+  color: var(--dt-text);
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+}
+
+.dt-input:focus,
+.dt-select:focus {
+  border-color: var(--dt-accent);
+}
+
+/* ---------- Tabs ---------- */
+.dt-tabs {
+  display: flex;
+  align-items: stretch;
+  height: 34px;
+  background: var(--dt-bg-panel);
+  border-bottom: 1px solid var(--dt-border);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.dt-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 11px;
+  font-size: 12px;
+  color: var(--dt-text-muted);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dt-tab:hover {
+  color: var(--dt-text);
+  background: var(--dt-bg-hover);
+}
+
+.dt-tab.active {
+  color: var(--dt-accent);
+  border-bottom-color: var(--dt-accent);
+  background: var(--dt-accent-bg);
+}
+
+/* ---------- Status badges ---------- */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.status-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-badge.ok {
+  color: var(--dt-green);
+  background: rgba(129, 201, 149, 0.12);
+}
+
+.status-badge.bad {
+  color: var(--dt-red);
+  background: rgba(242, 139, 130, 0.12);
+}
+
+.status-badge.warn {
+  color: var(--dt-yellow);
+  background: rgba(253, 214, 99, 0.12);
+}
+
+.status-badge.unknown {
+  color: var(--dt-text-muted);
+  background: rgba(154, 160, 166, 0.12);
+}
+
+/* ---------- Cards / sections ---------- */
+.dt-card {
+  background: var(--dt-bg-panel);
+  border: 1px solid var(--dt-border);
+  border-radius: 6px;
+}
+
+.dt-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--dt-border);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dt-text);
+}
+
+/* ---------- Key/value tables ---------- */
+.dt-kv {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.dt-kv th,
+.dt-kv td {
+  padding: 5px 12px;
+  border-bottom: 1px solid var(--dt-border);
+  vertical-align: top;
+  text-align: left;
+  word-break: break-word;
+}
+
+.dt-kv th {
+  color: var(--dt-text-muted);
+  font-weight: 500;
+  width: 38%;
+  white-space: nowrap;
+}
+
+.dt-kv td {
+  color: var(--dt-text);
+}
+
+.dt-kv .mono {
+  font-family: var(--dt-font-mono);
+  font-size: 11px;
+}
+
+.dt-kv tr:last-child th,
+.dt-kv tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------- Scrollbars ---------- */
+*::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--dt-border-strong);
+  border-radius: 6px;
+  border: 3px solid var(--dt-bg);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- Misc ---------- */
+.mono {
+  font-family: var(--dt-font-mono);
+  font-size: 11px;
+}
+
+.text-muted {
+  color: var(--dt-text-muted);
+}
+
+.text-faint {
+  color: var(--dt-text-faint);
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+code {
+  font-family: var(--dt-font-mono);
+  font-size: 11px;
+  background: var(--dt-bg-elevated);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.tree-node-value {
+  color: var(--dt-text);
+}
+
+.tree-node-oid {
+  color: var(--dt-blue);
+}
+
+.tree-node-string {
+  color: var(--dt-green);
+}
+
+.tree-node-number {
+  color: var(--dt-purple);
+}
+
+.error-panel {
+  padding: 12px;
+  color: var(--dt-red);
+  font-size: 12px;
+  white-space: pre-wrap;
+}
